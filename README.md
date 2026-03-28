@@ -96,7 +96,8 @@ This script searches through a prescribed range and records twists with analytic
 ## Notes
 
 The phrase “Verified in Magma” in Table 1 means that the listed examples were checked computationally using the scripts in this repository.
-
+The current scripts print their results to the Magma console.  
+If desired, they can easily be adapted to write the output to text files in the `output/` directory.
 ---
 
 ## Citation
