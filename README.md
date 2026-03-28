@@ -1,6 +1,6 @@
 # Quadratic Twists of Rank One via Frey’s Table and Waldspurger’s Theorem
 
-This repository contains the Magma code accompanying the paper:
+This repository contains Magma code accompanying the paper:
 
 **Quadratic Twists of Rank One via Frey’s Table and Waldspurger’s Theorem**
 Seungjae Lee and İlker İnam
@@ -34,24 +34,35 @@ The main goal is to identify squarefree integers ( d ) such that the quadratic t
 
 ## Repository Structure
 
-* `data/` — cleaned Frey table used in the paper
-* `src/` — Magma scripts for searching and verifying rank-one twists
-* `output/` — generated computational results
-* `paper/` — LaTeX source files of the manuscript
+* `data/`
+  Cleaned Frey table used in the paper
+
+* `src/`
+  Magma scripts:
+
+  * `search_rank1_twists.m` — search for rank-one twists in residue classes
+  * `verify_rank1_twists.m` — verify the representatives listed in the paper
+  * `utils.m` — auxiliary functions
+
+* `output/`
+  Generated computational results
+
+* `paper/`
+  LaTeX source files of the manuscript
 
 ---
 
 ## Usage
 
-Load the cleaned table:
+### Verify the table (recommended first step)
 
-```
-load "data/frey_table_clean.m";
+```magma
+load "src/verify_rank1_twists.m";
 ```
 
-Run the search script:
+### Search for additional twists in the same residue classes
 
-```
+```magma
 load "src/search_rank1_twists.m";
 ```
 
@@ -59,8 +70,8 @@ load "src/search_rank1_twists.m";
 
 ## Notes
 
-* Only squarefree twist parameters are considered
-* Computations are performed within a finite search bound
+* Only **squarefree** twist parameters are considered
+* Computations are performed within a finite search bound (default: ( k \le 40 ))
 * The behavior is **non-uniform**:
 
   * some curves admit many rank-one twists
@@ -69,12 +80,14 @@ load "src/search_rank1_twists.m";
 
 ---
 
-## Remark
+## Mathematical Remark
 
-The computations illustrate that the existence of rank-one quadratic twists is closely related to the non-vanishing of Fourier coefficients appearing in Waldspurger’s formula.
+The computations illustrate that the existence of rank-one quadratic twists is governed by the **non-vanishing of Fourier coefficients** appearing in Waldspurger’s formula.
+
+In particular, the observed non-uniformity reflects deeper arithmetic phenomena related to modular forms.
 
 ---
 
 ## License
 
-This project is released for academic and research use.
+This project is intended for academic and research use.
